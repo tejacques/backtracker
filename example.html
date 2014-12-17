@@ -3,7 +3,7 @@
 <head>
     <title>Backtracker Test</title>
     <script>
-        var onback = function (backclicks, cb) {
+        window.onback = function (backclicks, cb) {
             console.log("Clicked back: " + backclicks + " times.");
             setTimeout(cb, 200);
         };
