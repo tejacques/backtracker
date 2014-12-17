@@ -2,13 +2,13 @@
 <html>
 <head>
     <title>Backtracker Test</title>
+    <script src="dist/backtracker.min.js"></script>
     <script>
         window.onback = function (backclicks, cb) {
             console.log("Clicked back: " + backclicks + " times.");
             setTimeout(cb, 200);
         };
     </script>
-    <script src="src/backtracker.js"></script>
 </head>
 <body>
     <a href="/index.html">Index</a>
