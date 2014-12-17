@@ -7,7 +7,7 @@ module.exports = function (grunt) {
         watch: {
             scripts: {
                 files: ['<%= jshint.files %>'],
-                tasks: ['jshint']
+                tasks: ['jshint', 'uglify']
             }
         },
         connect: {
@@ -17,11 +17,20 @@ module.exports = function (grunt) {
                     base: '.'
                 }
             }
+        },
+        uglify: {
+            backtracker: {
+                files: {
+                    'dist/backtracker.min.js': ['src/backtracker.js']
+                }
+            }
         }
     });
+
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
     grunt.registerTask('default', ['connect', 'watch']);
 };
