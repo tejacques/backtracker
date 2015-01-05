@@ -32,9 +32,16 @@
                 ) {
                 var onback = window.onback;
                 if (onback && typeof (onback) === "function") {
-                    onback(history.length - state.length, function () {
+                    var cb = function () {
                         history.go(direction);
-                    });
+                    };
+                    onback(history.length - state.length, cb);
+
+                    // If the onback function didn't take a cb parameter we
+                    // assume it is synchronous, and call the cb ourselves
+                    if (onback.length < 2) {
+                        cb();
+                    }
                 } else {
                     history.go(direction);
                 }
