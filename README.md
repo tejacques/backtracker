@@ -29,6 +29,13 @@ Using backtracker is simple. All you need to do is add a script tag on your page
         // $.ajax, or setTimeout
         // setTimeout(cb, 200);
     };
+    
+    window.onback = function(backclicks) {
+        // If you don't need to perform an asynchronous operation
+        // you can define the onback function to only take a single
+        // argument, and it will be treated as a synchronous function
+        console.log("Clicked back: " + backclicks + " times.");
+    }
 </script>
 <script src="/path/to/backtracker.js"></script>
 
