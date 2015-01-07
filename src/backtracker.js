@@ -28,8 +28,7 @@
             var state = history.state;
             var direction = state ? state.direction : 0;
             if (direction === -1 &&
-                direction !== lastState.direction
-                ) {
+                direction !== lastState.direction) {
                 var onback = window.onback;
                 if (onback && typeof (onback) === "function") {
                     var cb = function () {
@@ -55,6 +54,8 @@
         }
     };
 
-    window.addEventListener("pageshow", setup);
+    if (window.addEventListener) {
+        window.addEventListener("pageshow", setup);
+    }
 
 })(window);
